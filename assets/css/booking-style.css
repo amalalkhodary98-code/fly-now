@@ -1,0 +1,279 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    background: #fcf8f5;
+    color: #6e625d; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.box {
+    background: #ffffff;
+    max-width: 650px;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(140, 113, 101, 0.04); 
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+h2 {
+    color: #514641; 
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.success {
+    background-color: #f6f0ec; 
+    color: #8c7165; 
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    border: 1px solid #e0d8d5; 
+}
+
+.flight-card {
+    background: linear-gradient(135deg, #6e625d, #8c7165);
+    color: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(140, 113, 101, 0.15); 
+}
+
+.flight-route {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed rgba(255,255,255,0.3);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.route-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.route-block span {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.route-block strong {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.route-block small {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.route-icon {
+    font-size: 1.8rem;
+    transform: rotate(45deg);
+}
+
+html[dir="rtl"] .route-icon {
+    transform: rotate(-45deg);
+}
+
+.flight-meta {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-item span {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.meta-item strong {
+    font-size: 1.1rem;
+}
+
+.price-tag {
+    color: #f7dcd0; 
+    font-size: 1.3rem !important;
+}
+
+.flight-status {
+    margin-top: 15px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: 600;
+}
+.flight-status.ontime { background: rgba(255,255,255,0.2); color: #fff; }
+.flight-status.delayed { background: #fdf2e9; color: #b45309; } 
+.flight-status.cancelled { background: #fff1f0; color: #d9383a; } 
+
+.form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #6e625d; 
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e0d8d5; 
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    background-color: #fff;
+    color: #6e625d; 
+    transition: all 0.2s;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: #8c7165; 
+    box-shadow: 0 0 0 3px rgba(140, 113, 101, 0.15); 
+}
+
+.booking-summary {
+    background: #fcf8f5; 
+    border: 1px solid #e0d8d5; 
+    border-radius: 10px;
+    padding: 15px;
+    margin: 25px 0;
+}
+
+.booking-summary h3 {
+    font-size: 1rem;
+    color: #6e625d;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e0d8d5;
+    padding-bottom: 5px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #8c7165; 
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #8c7165;
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #6e625d; 
+}
+
+.submit-btn.disabled {
+    background-color: #e0d8d5; 
+    color: #a69b97;
+    cursor: not-allowed;
+}
+
+.back-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.back-btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+.home-btn {
+    background-color: #f5ede8; 
+    color: #8c7165; 
+}
+
+.home-btn:hover {
+    background-color: #e0d8d5; 
+}
+
+.prev-btn {
+    background-color: transparent;
+    border: 1px solid #e0d8d5; 
+    color: #a69b97; 
+}
+
+.prev-btn:hover {
+    background-color: #fcf8f5; 
+}
+
+@media (max-width: 500px) {
+    .box {
+        padding: 15px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .route-block strong {
+        font-size: 1.2rem;
+    }
+    
+    .flight-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+    
+    .back-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

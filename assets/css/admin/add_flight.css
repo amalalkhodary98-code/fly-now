@@ -1,0 +1,214 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.admin-page {
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fcf8f5, #f3eae4);
+    color: #6e625d; 
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 40px 20px;
+    width: 100%;
+}
+
+.main-wrapper {
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-container {
+    background: #ffffff; 
+    width: 100%;
+    border-radius: 24px;
+    box-shadow: 0 20px 45px rgba(140, 113, 101, 0.04); 
+    padding: 40px 35px;
+    border: 1px solid rgba(224, 216, 213, 0.6); 
+}
+
+h2 {
+    color: #514641;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 30%;
+    right: 30%;
+    height: 3px;
+    background-color: #8c7165; 
+    border-radius: 50px;
+}
+
+.alert-msg {
+    padding: 12px 15px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.success-msg { 
+    background-color: #f6f0ec; 
+    color: #8c7165; 
+    border: 1px solid #e0d8d5; 
+}
+.error-msg { 
+    background-color: #fff1f0; 
+    color: #d9383a; 
+    border: 1px solid #ffa39e; 
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 13px 20px;
+    border: 1px solid #e0d8d5; 
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: #6e625d; 
+    background-color: #ffffff;
+    outline: none;
+    transition: all 0.25s ease;
+    text-align: center; 
+}
+
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://w3.org' viewBox='0 0 24 24' fill='none' stroke='%238c7165' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: left 20px center;
+    background-size: 14px;
+    padding-left: 45px;
+}
+
+html[dir="rtl"] select {
+    background-position: right 20px center;
+    padding-right: 20px;
+    padding-left: 45px;
+}
+
+input:focus,
+select:focus {
+    border-color: #8c7165; 
+    box-shadow: 0 0 0 4px rgba(140, 113, 101, 0.12); 
+}
+
+input::placeholder {
+    color: #a69b97; 
+}
+
+.admin-form button[type="submit"] {
+    width: 100%;
+    background: transparent;
+    color: #8c7165; 
+    border: 2px solid #8c7165; 
+    padding: 14px;
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 50px; 
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin-top: 10px;
+}
+
+.admin-form button[type="submit"]:hover {
+    background: rgba(140, 113, 101, 0.08); 
+    border-color: #6e625d;
+    color: #6e625d;
+    transform: translateY(-1px);
+}
+
+.back-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 25px;
+    border-top: 1px solid #f5ede8; 
+    padding-top: 25px;
+}
+
+.back-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 50px; 
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    background: transparent;
+    color: #a69b97; 
+    border: 2px solid #e0d8d5;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.back-btn:first-child {
+    color: #8c7165;
+}
+
+.back-btn:hover {
+    background-color: rgba(166, 155, 151, 0.06);
+    color: #6e625d;
+    border-color: #a69b97;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+    .admin-container {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    .back-buttons {
+        flex-direction: column; 
+        gap: 12px;
+    }
+
+    .back-btn {
+        width: 100%;
+    }
+}
+
+.animated-fadeIn {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}

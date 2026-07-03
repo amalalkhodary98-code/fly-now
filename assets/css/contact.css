@@ -1,0 +1,330 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.contact-page {
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fcf8f5, #f3eae4);
+    color: #6e625d;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    width: 100%;
+}
+
+.contact-wrapper {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-container {
+    background: #ffffff;
+    width: 100%;
+    border-radius: 24px;
+    box-shadow: 0 20px 45px rgba(140, 113, 101, 0.04);
+    border: 1px solid rgba(224, 216, 213, 0.6);
+    display: grid;
+    grid-template-columns: 4.5fr 5.5fr; 
+    overflow: hidden;
+}
+
+.contact-info-panel {
+    background-color: #8c7165; 
+    color: #ffffff;
+    padding: 45px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.contact-info-panel h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.panel-desc {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.info-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-clickable-item {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 10px 15px;
+    transition: all 0.25s ease;
+}
+
+.contact-clickable-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(4px);
+}
+
+html[dir="rtl"] .contact-clickable-item:hover {
+    transform: translateX(-4px);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.static-item {
+    padding: 10px 15px;
+}
+
+.info-item i {
+    font-size: 1.3rem;
+    background: rgba(255, 255, 255, 0.1);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.text-whatsapp { color: #25d366 !important; background: #ffffff !important; }
+.text-facebook { color: #1877f2 !important; background: #ffffff !important; }
+.text-instagram { color: #e1306c !important; background: #ffffff !important; }
+
+.info-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-item span {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    margin-bottom: 2px;
+}
+
+.info-item strong {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.social-pills-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto; 
+}
+
+.social-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 50px; 
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ffffff;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.social-pill:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.1); 
+}
+
+.social-pill.fb { background-color: #114a94; }
+.social-pill.ig { background-color: #912549; }
+.social-pill.wa { background-color: #35a45e; }
+
+.contact-form-panel {
+    padding: 45px 40px;
+}
+
+.contact-form-panel h2 {
+    color: #514641;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6e625d;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid #e0d8d5;
+    border-radius: 50px; 
+    font-family: inherit;
+    font-size: 0.92rem;
+    color: #6e625d;
+    background-color: #ffffff;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+textarea {
+    border-radius: 16px !important; 
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #8c7165;
+    box-shadow: 0 0 0 4px rgba(140, 113, 101, 0.12);
+}
+
+.btn-send-pill {
+    width: 100%;
+    background: transparent;
+    color: #8c7165;
+    border: 2px solid #8c7165;
+    padding: 14px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin-top: 25px;
+}
+
+.btn-send-pill:hover {
+    background: rgba(140, 113, 101, 0.08);
+    border-color: #6e625d;
+    color: #6e625d;
+    transform: translateY(-1px);
+}
+
+.alert-msg {
+    padding: 12px 15px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.success-msg { background-color: #f6f0ec; color: #8c7165; border: 1px solid #e0d8d5; }
+
+.back-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 25px;
+    border-top: 1px solid #f5ede8;
+    padding-top: 25px;
+}
+
+.back-btn {
+    flex: 1;
+    max-width: 200px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px;
+    border-radius: 50px; 
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    background: transparent;
+    color: #a69b97;
+    border: 2px solid #e0d8d5;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.back-btn:first-child { color: #8c7165; }
+.back-btn:hover {
+    background-color: rgba(166, 155, 151, 0.06);
+    color: #6e625d;
+    border-color: #a69b97;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 850px) {
+    .contact-container {
+        grid-template-columns: 1fr; 
+    }
+    
+    .contact-info-panel {
+        padding: 35px 25px;
+    }
+    
+    .social-pills-bar {
+        margin-top: 30px;
+    }
+    
+    .contact-form-panel {
+        padding: 35px 25px;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+    
+    .back-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .back-btn {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.animated-fadeIn {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
