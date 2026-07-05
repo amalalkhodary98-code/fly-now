@@ -122,7 +122,7 @@ $langcod = $_SESSION['lang'] ?? 'ar';
 
 <section class="features-section">
     <div class="features-title">
-        <h2><?= $langcod == 'ar' ? 'لماذا يعتمد المسافرون على منصة رحلة?' : 'Why Travelers Trust Rehla Platform?' ?></h2>
+        <h2><?= $langcod == 'ar' ? 'لماذا يعتمد المسافرون على منصة رحلة' : 'Why Travelers Trust Rehla Platform?' ?></h2>
     </div>
     <div class="features-grid">
         <div class="feature-item">

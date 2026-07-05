@@ -6,18 +6,32 @@ include "../lang.php";
 $message_html = "";
 
 if (isset($_POST['send_message'])) {
+
     $name    = mysqli_real_escape_string($conn, $_POST['name']);
     $email   = mysqli_real_escape_string($conn, $_POST['email']);
     $subject = mysqli_real_escape_string($conn, $_POST['subject']);
     $message = mysqli_real_escape_string($conn, $_POST['message']);
 
-    $message_html = "
-    <div class='alert-msg success-msg'>
-    ".($langcod == 'ar' ? '✅ تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.' : 'Message sent successfully! We will contact you soon.')."
-    </div>";
+    $sql = "INSERT INTO contact_messages (name, email, subject, message)
+            VALUES ('$name', '$email', '$subject', '$message')";
+
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
+        $message_html = "
+        <div class='alert-msg success-msg'>
+        ".($langcod == 'ar'
+            ? '✅ تم إرسال رسالتك بنجاح!'
+            : 'Message sent successfully!')."
+        </div>";
+    } else {
+        $message_html = "
+        <div class='alert-msg error-msg'>
+        خطأ: " . mysqli_error($conn) . "
+        </div>";
+    }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="<?= $langcod ?>" dir="<?= $langcod == 'ar' ? 'rtl' : 'ltr' ?>">
 <head>
@@ -46,7 +60,7 @@ if (isset($_POST['send_message'])) {
                         <i class="fa-brands fa-whatsapp text-whatsapp"></i>
                         <div>
                             <span><?= $langcod == 'ar' ? 'محادثة واتساب' : 'WhatsApp Chat' ?></span>
-                            <strong>+970 599 000 000</strong>
+                            <strong> 959493 599 079+</strong>
                         </div>
                     </div>
                 </a>
@@ -56,7 +70,7 @@ if (isset($_POST['send_message'])) {
                         <i class="fa-brands fa-facebook-f text-facebook"></i>
                         <div>
                             <span><?= $langcod == 'ar' ? 'صفحة الفيسبوك' : 'Facebook Page' ?></span>
-                            <strong>Fly Now Portal</strong>
+                            <strong>rihla Portal</strong>
                         </div>
                     </div>
                 </a>
@@ -66,7 +80,7 @@ if (isset($_POST['send_message'])) {
                         <i class="fa-brands fa-instagram text-instagram"></i>
                         <div>
                             <span><?= $langcod == 'ar' ? 'حساب الإنستغرام' : 'Instagram Profile' ?></span>
-                            <strong>@flynow_travel</strong>
+                            <strong>@rihla</strong>
                         </div>
                     </div>
                 </a>
@@ -75,7 +89,7 @@ if (isset($_POST['send_message'])) {
                     <i class="fa-regular fa-envelope"></i>
                     <div>
                         <span><?= $langcod == 'ar' ? 'البريد الإلكتروني' : 'Email Address' ?></span>
-                        <strong>support@flynow.com</strong>
+                        <strong>rihla_2026@gmail.com</strong>
                     </div>
                 </div>
             </div>
