@@ -1,31 +1,11 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Jul 05, 2026 at 04:04 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
---
--- Database: `travel-db`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `bookings`
---
 
 CREATE TABLE `bookings` (
   `id` int(11) NOT NULL,
@@ -44,9 +24,6 @@ CREATE TABLE `bookings` (
   `seen` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `bookings`
---
 
 INSERT INTO `bookings` (`id`, `flight_id`, `name`, `travel_date`, `travel_time`, `trip_type`, `class_type`, `user_id`, `seat`, `bags`, `payment_method`, `status`, `phone`, `seen`) VALUES
 (57, 147, 'امل الخضري', '2026-05-14', '17:00:00', 'ذهاب وعودة', 'أولى', 1, 'A1', '2', 'Apple Pay', 'تم التأكيد', '0597898540', 0),
@@ -55,11 +32,6 @@ INSERT INTO `bookings` (`id`, `flight_id`, `name`, `travel_date`, `travel_time`,
 (60, 183, 'سالي كنعان الخضري', '0000-00-00', '12:00:00', 'ذهاب', 'سياحية', 1, 'A2', '1', 'MasterCard', 'تم التأكيد', '0597898540', 0),
 (61, 184, 'امل الخضري', '2026-05-12', '12:00:00', 'ذهاب', 'سياحية', 1, 'A1', '1', 'Visa', 'قيد المراجعة', '0599999999', 0);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `contact_messages`
---
 
 CREATE TABLE `contact_messages` (
   `id` int(11) NOT NULL,
@@ -70,18 +42,10 @@ CREATE TABLE `contact_messages` (
   `subject` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `contact_messages`
---
 
 INSERT INTO `contact_messages` (`id`, `name`, `email`, `message`, `created_at`, `subject`) VALUES
 (1, 'Amal Alkhodary', 'amalalkhodary98@gmail.com', 'يرجي التواصل معنا بكل التفاصيل ', '2026-07-05 13:42:46', 'الغاء حجز تم اعتماده');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `flights`
---
 
 CREATE TABLE `flights` (
   `id` int(11) NOT NULL,
@@ -96,19 +60,11 @@ CREATE TABLE `flights` (
   `status` varchar(50) DEFAULT 'On Time'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `flights`
---
 
 INSERT INTO `flights` (`id`, `from_city`, `to_city`, `departure_time`, `price`, `seats`, `airline`, `from_airport`, `to_airport`, `status`) VALUES
 (183, 'Amman', 'Dubai', '2026-06-20 10:00:00', 320.00, 99, 'Emirates', 'Queen Alia', 'Dubai International', 'في الموعد'),
 (184, 'Amman', 'Istanbul', '2026-07-15 01:30:00', 350.00, 119, 'Turkish Airlines', 'Queen Alia Airport', 'Istanbul Airport', 'متأخرة');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `gaza_requests`
---
 
 CREATE TABLE `gaza_requests` (
   `id` int(11) NOT NULL,
@@ -137,11 +93,6 @@ CREATE TABLE `gaza_requests` (
   `admin_notes` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
@@ -154,9 +105,6 @@ CREATE TABLE `users` (
   `phone` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `users`
---
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `security_question`, `security_answer`, `phone`) VALUES
 (1, 'Amal Alkhodary', 'amalalkhodary98@gmail.com', '1161995', 'user', NULL, NULL, NULL),
@@ -166,75 +114,33 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `security_questi
 (8, ' Rawan Zeen eldin', 'rawan99@gmail.com', '100200300', 'user', NULL, NULL, NULL),
 (11, 'shaima Zeen eldein', 'shaimaa2000@gmile.com', '123456789', 'user', NULL, NULL, NULL);
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `bookings`
---
 ALTER TABLE `bookings`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `contact_messages`
---
 ALTER TABLE `contact_messages`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `flights`
---
 ALTER TABLE `flights`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `gaza_requests`
---
 ALTER TABLE `gaza_requests`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `users`
---
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `bookings`
---
 ALTER TABLE `bookings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
---
--- AUTO_INCREMENT for table `contact_messages`
---
 ALTER TABLE `contact_messages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT for table `flights`
---
 ALTER TABLE `flights`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
 
---
--- AUTO_INCREMENT for table `gaza_requests`
---
 ALTER TABLE `gaza_requests`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
---
--- AUTO_INCREMENT for table `users`
---
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
