@@ -46,9 +46,9 @@ if(!$row){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $langcod == 'ar' ? 'تذكرتي الرقمية' : 'My Ticket' ?></title>
     <link rel="stylesheet" href="../assets/css/ticket.css">
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -78,7 +78,7 @@ if(!$row){
                     <small>🛬 <?= htmlspecialchars($row['to_airport']); ?></small>
                 </div>
             </div>
-ة
+
             <div class="ticket-info-grid">
                 <div class="info-box">
                     <h3><?= $langcod == 'ar' ? 'اسم المسافر رباعي' : 'Passenger Name' ?></h3>
@@ -123,10 +123,10 @@ if(!$row){
 
             <div class="qr-section-wrapper">
                 <div class="qr-code-holder">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=FlyNowBooking<?= $row['id']; ?>" alt="Ticket QR Code">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=FlyNowBooking<?= urlencode($row['id']); ?>" alt="Ticket QR Code">
                 </div>
                 <div class="price-summary-box">
-                    <small><?= $langcod == 'ar' ? 'ثمن التذكرة الإجمالي' : 'Total Fair' ?></small>
+                    <small><?= $langcod == 'ar' ? 'ثمن التذكرة الإجمالي' : 'Total Fare' ?></small>
                     <strong><?= htmlspecialchars($row['price']); ?>$</strong>
                 </div>
             </div>
@@ -142,7 +142,7 @@ if(!$row){
 
     <div class="navigation-footer">
         <a href="../index.php?lang=<?= $langcod ?>" class="nav-pill-btn home-pill">
-            Home 🏠 <?= $langcod == 'ar' ? 'العودة للرئيسية' : 'Home' ?>
+            🏠 <?= $langcod == 'ar' ? 'العودة للرئيسية' : 'Home' ?>
         </a>
     </div>
 
