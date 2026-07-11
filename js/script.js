@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (wrapper && video && audioBtn) {
             wrapper.addEventListener('click', function() {
                 if (video.muted) {
-                    video.muted = false;
+                    video.muted = true;
                     audioBtn.className = 'fa-solid fa-volume-high'; 
                 } else {
                     video.muted = true;
@@ -197,3 +197,32 @@ document.addEventListener("DOMContentLoaded", function() {
     loadSliderImages();
     resetAutoSlider();
 });
+function switchAuthTab(tabName) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.auth-panel').forEach(panel => panel.classList.remove('active'));
+    
+    if (tabName === 'login') {
+        event.currentTarget.classList.add('active');
+        document.getElementById('login-form-panel').classList.add('active');
+    } else {
+        event.currentTarget.classList.add('active');
+        document.getElementById('register-form-panel').classList.add('active');
+    }
+}
+  document.addEventListener("DOMContentLoaded", function() {
+        const navLinks = document.querySelector('.nav-links');
+        const menuBtn = document.getElementById('menuToggle');
+        
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener('click', function(e) {
+                e.stopPropagation(); 
+                navLinks.classList.toggle('show-menu');
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+                    navLinks.classList.remove('show-menu');
+                }
+            });
+        }
+    });

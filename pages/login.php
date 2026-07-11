@@ -64,7 +64,6 @@ if (isset($_POST['register'])) {
     }
 }
 
-display_html:
 $display_tab = isset($active_tab) ? $active_tab : (isset($_POST['register']) ? 'register' : 'login');
 ?>
 <!DOCTYPE html>
@@ -178,20 +177,7 @@ $display_tab = isset($active_tab) ? $active_tab : (isset($_POST['register']) ? '
     </div>
 
 </div>
+<script src="js/script.js"></script>
 
-<script>
-function switchAuthTab(tabName) {
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.auth-panel').forEach(panel => panel.classList.remove('active'));
-    
-    if (tabName === 'login') {
-        event.currentTarget.classList.add('active');
-        document.getElementById('login-form-panel').classList.add('active');
-    } else {
-        event.currentTarget.classList.add('active');
-        document.getElementById('register-form-panel').classList.add('active');
-    }
-}
-</script>
 </body>
 </html>

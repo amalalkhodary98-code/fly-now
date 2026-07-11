@@ -82,20 +82,93 @@ $langcod = $_SESSION['lang'] ?? 'ar';
         </div>
     </div>
 </header>
-
 <section class="hero-section">
     <div class="hero-video-container">
         <div class="hero-overlay"></div>
     </div>
+    
     <div class="hero-content">
         <h1><?= $langcod == 'ar' ? 'وجهتك القادمة تبدأ بضغطة زر' : 'Your Next Destination Starts with a Click' ?></h1>
         <p><?= $langcod == 'ar' ? 'منصة متكاملة لتسهيل حجوزات الطيران، تذاكر السفر، وتنسيقات المسافرين بكل أمان وراحة.' : 'An integrated platform to facilitate flight bookings, travel tickets, and passenger coordination safely and comfortably.' ?></p>
-        <div class="hero-buttons">
-            <a href="pages/flights.php?lang=<?= $langcod ?>" class="btn-primary"><?= $langcod == 'ar' ? 'احجز الآن' : 'Book Now' ?></a>
-            <a href="pages/offers.php?lang=<?= $langcod ?>" class="btn-secondary"><?= $langcod == 'ar' ? 'اكتشف العروض والخدمات' : 'Discover Services' ?></a>
+    </div>
+
+    <div class="booking-widget-container">
+        <div class="widget-tabs">
+            <button class="tab-btn active"><i class="fa-solid fa-plane"></i> <?= $langcod == 'ar' ? 'احجز رحلة طيران' : 'Book a Flight' ?></button>
+            <button class="tab-btn"><i class="fa-solid fa-briefcase"></i> <?= $langcod == 'ar' ? 'الباقات / التوقف المؤقت' : 'Packages / Stopover' ?></button>
+            <button class="tab-btn"><i class="fa-solid fa-clipboard-list"></i> <?= $langcod == 'ar' ? 'إدارة الحجز / تسجيل الدخول' : 'Manage Booking / Login' ?></button>
+            <button class="tab-btn"><i class="fa-solid fa-clock"></i> <?= $langcod == 'ar' ? 'حالة الرحلة' : 'Flight Status' ?></button>
         </div>
+
+        <form action="pages/flights.php" method="GET" class="booking-form">
+            <div class="flight-type-row">
+                <label class="radio-label">
+                    <input type="radio" name="flight_type" value="round" checked>
+                    <span class="custom-radio"></span>
+                    <?= $langcod == 'ar' ? 'رحلة ذهاب وعودة' : 'Round trip' ?>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="flight_type" value="oneway">
+                    <span class="custom-radio"></span>
+                    <?= $langcod == 'ar' ? 'اتجاه واحد' : 'One way' ?>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="flight_type" value="multi">
+                    <span class="custom-radio"></span>
+                    <?= $langcod == 'ar' ? 'وجهات متعددة' : 'Multi-city' ?>
+                </label>
+            </div>
+
+            <div class="booking-fields-grid">
+                <div class="field-group destination-picker">
+                    <div class="inner-input">
+                        <label><?= $langcod == 'ar' ? 'من' : 'From' ?></label>
+                        <input type="text" name="from_city" placeholder="<?= $langcod == 'ar' ? 'مدينة المغادرة' : 'Departure City' ?>" required>
+                    </div>
+                    <button type="button" class="swap-locations-btn"><i class="fa-solid fa-arrows-rotate"></i></button>
+                    <div class="inner-input">
+                        <label><?= $langcod == 'ar' ? 'إلى' : 'To' ?></label>
+                        <input type="text" name="to_city" placeholder="<?= $langcod == 'ar' ? 'مدينة الوصول' : 'Arrival City' ?>" required>
+                    </div>
+                </div>
+
+                <div class="field-group date-picker-group">
+                    <div class="inner-input">
+                        <label><?= $langcod == 'ar' ? 'رحلة المغادرة' : 'Departure' ?></label>
+                        <input type="date" name="departure_date" required>
+                    </div>
+                    <div class="inner-input">
+                        <label><?= $langcod == 'ar' ? 'رحلة ذهاب وعودة' : 'Return' ?></label>
+                        <input type="date" name="return_date">
+                    </div>
+                </div>
+
+                <div class="field-group passengers-group">
+                    <label><?= $langcod == 'ar' ? 'المسافرون / درجة السفر' : 'Passengers / Class' ?></label>
+                    <select name="passengers_class">
+                        <option value="1_economy">1 <?= $langcod == 'ar' ? 'المسافر، الدرجة السياحية' : 'Passenger, Economy' ?></option>
+                        <option value="2_economy">2 <?= $langcod == 'ar' ? 'مسافرين، الدرجة السياحية' : 'Passengers, Economy' ?></option>
+                        <option value="1_business">1 <?= $langcod == 'ar' ? 'المسافر، درجة الأعمال' : 'Passenger, Business' ?></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="booking-footer-row">
+                <div class="promo-code-box">
+                    <button type="button" class="promo-toggle-btn"><i class="fa-solid fa-plus"></i> <?= $langcod == 'ar' ? 'إضافة رمز ترويجي' : 'Add promo code' ?></button>
+                </div>
+                <button type="submit" class="search-flights-btn">
+                    <?= $langcod == 'ar' ? 'ابحث عن الرحلات' : 'Search flights' ?>
+                </button>
+            </div>
+        </form>
     </div>
 </section>
+
+<section class="next-content-section" style="padding: 140px 20px 60px 20px; background: #fbf9f6; text-align: center;">
+    <h2><?= $langcod == 'ar' ? 'سافر ولا تفوّت أهم الفعاليات' : 'Travel and Don\'t Miss the Best Events' ?></h2>
+</section>
+
 
 <section class="main-gateways">
     <div class="gateway-container">
@@ -151,7 +224,7 @@ $langcod = $_SESSION['lang'] ?? 'ar';
         <div class="carousel-card">
             <div class="video-wrapper">
                 <video autoplay loop muted playsinline class="card-video">
-                    <source src="assets/videos.mp4/dubai.mp41.mp4" type="video/mp4">
+                    <source src="assets/videos.mp4/dubai.mp4" type="video/mp4">
                 </video>
             </div>
             <h4><?= $langcod == 'ar' ? 'استكشف سحر دبي والخليج' : 'Explore the Magic of Dubai' ?></h4>
@@ -173,6 +246,53 @@ $langcod = $_SESSION['lang'] ?? 'ar';
             </div>
             <h4><?= $langcod == 'ar' ? 'آلية تسهيل السفر عبر المعابر' : 'Crossing Travel Procedures' ?></h4>
         </div>
+    </div>
+</section>
+
+<section class="recommended-destinations">
+    <div class="features-title">
+        <h2><?= $langcod == 'ar' ? 'أفكار لرحلات استثنائية' : 'Ideas for Exceptional Trips' ?></h2>
+    </div>
+    
+    <div class="destinations-qatar-grid">
+        <a href="pages/flights.php?lang=<?= $langcod ?>" class="qatar-card">
+            <img src="assets/images/newyork.jpg" alt="New York">
+            <div class="qatar-overlay">
+                <div class="qatar-row top-row">
+                    <h4 class="qatar-name"><?= $langcod == 'ar' ? 'مدينة نيويورك' : 'New York City' ?></h4>
+                    <p class="qatar-class"><?= $langcod == 'ar' ? 'الدرجة السياحية ' : 'Economy Class ' ?><span class="qatar-price">JOD 735</span></p>
+                </div>
+                <div class="qatar-row bottom-row">
+                    <p class="qatar-date">12 <?= $langcod == 'ar' ? 'سبتمبر' : 'September' ?> 2026 - 14 <?= $langcod == 'ar' ? 'سبتمبر' : 'September' ?> 2026</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="pages/flights.php?lang=<?= $langcod ?>" class="qatar-card">
+            <img src="assets/images/kuala_lumpur.jpg" alt="Kuala Lumpur">
+            <div class="qatar-overlay">
+                <div class="qatar-row top-row">
+                    <h4 class="qatar-name"><?= $langcod == 'ar' ? 'كوالالمبور' : 'Kuala Lumpur' ?></h4>
+                    <p class="qatar-class"><?= $langcod == 'ar' ? 'الدرجة السياحية ' : 'Economy Class ' ?><span class="qatar-price">JOD 520</span></p>
+                </div>
+                <div class="qatar-row bottom-row">
+                    <p class="qatar-date">07 <?= $langcod == 'ar' ? 'سبتمبر' : 'September' ?> 2026 - 21 <?= $langcod == 'ar' ? 'سبتمبر' : 'September' ?> 2026</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="pages/flights.php?lang=<?= $langcod ?>" class="qatar-card">
+            <img src="assets/images/london1.jpg" alt="London">
+            <div class="qatar-overlay">
+                <div class="qatar-row top-row">
+                    <h4 class="qatar-name"><?= $langcod == 'ar' ? 'لندن' : 'London' ?></h4>
+                    <p class="qatar-class"><?= $langcod == 'ar' ? 'الدرجة السياحية ' : 'Economy Class ' ?><span class="qatar-price">JOD 610</span></p>
+                </div>
+                <div class="qatar-row bottom-row">
+                    <p class="qatar-date">06 <?= $langcod == 'ar' ? 'نوفمبر' : 'November' ?> 2026 - 11 <?= $langcod == 'ar' ? 'نوفمبر' : 'November' ?> 2026</p>
+                </div>
+            </div>
+        </a>
     </div>
 </section>
 
@@ -206,26 +326,6 @@ $langcod = $_SESSION['lang'] ?? 'ar';
      data-clicks="0">
      Control Panel
 </div>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const navLinks = document.querySelector('.nav-links');
-        const menuBtn = document.getElementById('menuToggle');
-        
-        if (menuBtn && navLinks) {
-            menuBtn.addEventListener('click', function(e) {
-                e.stopPropagation(); 
-                navLinks.classList.toggle('show-menu');
-            });
-
-            document.addEventListener('click', function(e) {
-                if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
-                    navLinks.classList.remove('show-menu');
-                }
-            });
-        }
-    });
-</script>
 <script src="js/script.js"></script>
 </body>
 </html>
