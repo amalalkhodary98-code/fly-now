@@ -23,7 +23,6 @@ $bookings = mysqli_num_rows(
 mysqli_query($conn,"SELECT * FROM bookings")
 );
 
-
 $flights = mysqli_num_rows(
 mysqli_query($conn,"SELECT * FROM flights")
 );

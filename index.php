@@ -165,11 +165,10 @@ $langcod = $_SESSION['lang'] ?? 'ar';
     </div>
 </section>
 
+
 <section class="next-content-section" style="padding: 140px 20px 60px 20px; background: #fbf9f6; text-align: center;">
     <h2><?= $langcod == 'ar' ? 'سافر ولا تفوّت أهم الفعاليات' : 'Travel and Don\'t Miss the Best Events' ?></h2>
 </section>
-
-
 <section class="main-gateways">
     <div class="gateway-container">
         <div class="gate-box">

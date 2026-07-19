@@ -3,6 +3,10 @@ session_start();
 include "../lang.php";
 include "../config.php";
 
+if (isset($_GET['secret'])) {
+    $_SESSION['admin_secret'] = $_GET['secret'];
+}
+
 if (isset($_POST['login'])) {
     $email    = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
@@ -17,12 +21,16 @@ if (isset($_POST['login'])) {
             
             $secret_token = "gaza_safe_gate_2026";
             
-            if (!isset($_GET['secret']) || $_GET['secret'] !== $secret_token) {
+            $current_secret = isset($_GET['secret']) ? $_GET['secret'] : (isset($_SESSION['admin_secret']) ? $_SESSION['admin_secret'] : '');
+
+            if ($current_secret !== $secret_token) {
                 $error = $langcod == 'ar' ? "بيانات الدخول خاطئة ❌" : "Invalid login data ❌";
                 $active_tab = "login";
                 $display_tab = "login";
                 goto display_html; 
             }
+            
+            unset($_SESSION['admin_secret']);
         }
 
         $_SESSION['user_id']   = $row['id'];
@@ -65,6 +73,7 @@ if (isset($_POST['register'])) {
 }
 
 $display_tab = isset($active_tab) ? $active_tab : (isset($_POST['register']) ? 'register' : 'login');
+display_html:
 ?>
 <!DOCTYPE html>
 <html lang="<?= $langcod ?>" dir="<?= $langcod == 'ar' ? 'rtl' : 'ltr' ?>">
@@ -177,7 +186,7 @@ $display_tab = isset($active_tab) ? $active_tab : (isset($_POST['register']) ? '
     </div>
 
 </div>
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>
