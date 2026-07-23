@@ -89,7 +89,7 @@ $langcod = $_SESSION['lang'] ?? 'ar';
     
     <div class="hero-content">
         <h1><?= $langcod == 'ar' ? 'وجهتك القادمة تبدأ بضغطة زر' : 'Your Next Destination Starts with a Click' ?></h1>
-        <p><?= $langcod == 'ar' ? 'منصة متكاملة لتسهيل حجوزات الطيران، تذاكر السفر، وتنسيقات المسافرين بكل أمان وراحة.' : 'An integrated platform to facilitate flight bookings, travel tickets, and passenger coordination safely and comfortably.' ?></p>
+        <p><?= $langcod == 'ar' ? 'منصة متكاملة لتسهيل حجوزات الطيران، تذاكر السفر، وتنسيقات المسافرين بكل أمان وراحة' : 'An integrated platform to facilitate flight bookings, travel tickets, and passenger coordination safely and comfortably.' ?></p>
     </div>
 
     <div class="booking-widget-container">

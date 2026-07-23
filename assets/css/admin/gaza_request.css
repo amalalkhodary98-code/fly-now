@@ -207,6 +207,9 @@ body.admin-page {
     border-color: #a69b97;
     transform: translateY(-1px);
 }
+.request-card {
+    margin-bottom: 30px; 
+}
 
 @media (max-width: 650px) {
     .gaza-card {

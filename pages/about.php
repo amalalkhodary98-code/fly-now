@@ -64,16 +64,19 @@ $langcod = $_SESSION['lang'] ?? 'ar';
                     : 'Understanding the vital importance of time and comfort for your journeys, Rehla dedicates a fully integrated section for Gaza Strip services. We aim to simplify travel coordination procedures, track crossing statuses step-by-step, and provide reliable, live updates ensuring a safe and organized journey from start to finish.' ?>
             </p>
         </div>
-    <div class="about-phone-side">
-            <div class="phone-mockup-large">
-                <div class="phone-speaker"></div>
-                <div class="phone-screen">
-                    <img src="../assets/images/about-main/3.png" alt="Gaza Services Mobile App">
-                </div>
-                <div class="phone-home-btn"></div>
-            </div>
-        </div>
+<div class="phone-mockup-large">
+    <div class="phone-speaker"></div>
+    <div class="phone-screen">
+        <!-- الكود يقوم بفحص اللغة، فإذا كانت إنجليزي يعرض الصورة الإنجليزية، وإلا يعرض الصورة العربية -->
+        <?php if ($langcod == 'en'): ?>
+            <img src="../assets/images/about-main/3_en.png" alt="Gaza Services Mobile App">
+        <?php else: ?>
+            <img src="../assets/images/about-main/3.png" alt="Gaza Services Mobile App">
+        <?php endif; ?>
     </div>
+    <div class="phone-home-btn"></div>
+</div>
+
 </section>
 <section class="about-services responsive-section" style="background: #ffffff; padding-top: 60px !important; padding-bottom: 60px !important; border-top: 1px solid rgba(0,0,0,0.03); border-bottom: 1px solid rgba(0,0,0,0.03);">
     <div class="section-title" style="margin: 0 0 40px 0; text-align: center;">

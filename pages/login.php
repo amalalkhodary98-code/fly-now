@@ -50,10 +50,10 @@ if (isset($_POST['login'])) {
         $active_tab = "login";
     }
 }
-
 if (isset($_POST['register'])) {
     $name     = mysqli_real_escape_string($conn, $_POST['name']);
     $email    = mysqli_real_escape_string($conn, $_POST['register_email']);
+    $phone    = mysqli_real_escape_string($conn, $_POST['register_phone']); // تم إضافته لاستقبال رقم الهاتف
     $password = mysqli_real_escape_string($conn, $_POST['register_password']);
 
     $check = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
@@ -61,7 +61,7 @@ if (isset($_POST['register'])) {
         $register_error = $langcod == 'ar' ? "الإيميل مستخدم بالفعل ❌" : "Email already exists ❌";
         $active_tab = "register";
     } else {
-        $insert = "INSERT INTO users(name,email,password,role) VALUES('$name','$email','$password','user')";
+        $insert = "INSERT INTO users(name,email,password,role,phone) VALUES('$name','$email','$password','user','$phone')";
         if (mysqli_query($conn, $insert)) {
             $success = $langcod == 'ar' ? "تم إنشاء الحساب بنجاح ✅" : "Account created successfully ✅";
             $active_tab = "login";
@@ -71,10 +71,10 @@ if (isset($_POST['register'])) {
         }
     }
 }
-
 $display_tab = isset($active_tab) ? $active_tab : (isset($_POST['register']) ? 'register' : 'login');
 display_html:
 ?>
+
 <!DOCTYPE html>
 <html lang="<?= $langcod ?>" dir="<?= $langcod == 'ar' ? 'rtl' : 'ltr' ?>">
 <head>
